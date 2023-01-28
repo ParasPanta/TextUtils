@@ -12,6 +12,22 @@ function TextForm() {
     setText(text.toUpperCase());
   };
 
+  const handleLowerCaseClick = () => {
+    setText(text.toLowerCase());
+    };
+    
+  const handleInverseClick = () => {
+      let newText = text.split('')
+      for (let letter = 0; letter < newText.length; letter++) {
+          if (newText[letter].toUpperCase() === newText[letter]) {
+            newText[letter] = newText[letter].toLowerCase()
+        } else {
+              newText[letter] = newText[letter].toUpperCase()
+          }
+      }
+      setText(newText.join(''))
+  };
+
   return (
     <>
       <div className="mb-3">
@@ -27,7 +43,13 @@ function TextForm() {
       </div>
       <div className="container">
         <button className="btn btn-primary" onClick={handleUpperCaseClick}>
-          Change to UpperCase
+          UpperCase
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleLowerCaseClick}>
+          LowerCase
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleInverseClick}>
+          Inverse
         </button>
       </div>
     </>
