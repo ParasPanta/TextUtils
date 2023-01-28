@@ -51,7 +51,16 @@ function TextForm() {
         <button className="btn btn-primary mx-1" onClick={handleInverseClick}>
           Inverse
         </button>
-      </div>
+          </div>
+          <div className="container my-1">
+              <h2>Text Summary</h2>
+              <p>
+                  {text.split(" ").length} words and {text.length} characters
+              </p>
+              <p>
+                  {text.split(" ").length * 0.008} minutes read
+              </p>
+          </div>
     </>
   );
 }
