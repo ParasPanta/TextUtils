@@ -4,10 +4,12 @@ import React from "react";
 function TextForm() {
   const [text, setText] = useState("");
   const [wordCount, setWordCount] = useState(0);
+  const [countVowCons, setCountVowCons] = useState([0, 0]);
 
   const handleOnChange = (e) => {
     setText(e.target.value);
     countWords(e.target.value);
+    setCountVowCons(handleCountVowCons(e.target.value));
   };
 
   const countWords = (text) => {
@@ -57,6 +59,13 @@ function TextForm() {
     setText(para);
   };
 
+  const handleCountVowCons = (text) => {
+    let newText = text.replace(/[^a-z]/g, "");
+    let arrVowels = newText.replace(/[^aeiou]/g, "");
+    let arrConsonants = newText.replace(/[aeiou]/g, "");
+    return [arrVowels.length, arrConsonants.length];
+  };
+
   return (
     <>
       <div className="mb-3">
@@ -95,6 +104,9 @@ function TextForm() {
         <p>
           {Math.floor((wordCount * 0.48) / 60)} minutes and{" "}
           {Math.floor((wordCount * 0.48) % 60)} seconds read
+        </p>
+        <p>
+          {countVowCons[0]} vowels and {countVowCons[1]} consonants
         </p>
       </div>
     </>
