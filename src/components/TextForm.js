@@ -57,6 +57,14 @@ function TextForm() {
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti aspernatur reprehenderit ratione amet illum non praesentium, quos inventore quia eligendi ad cum nemo voluptatum nihil sapiente distinctio? Possimus voluptates aliquam quasi ullam dolor facere atque facilis quod eum! Ipsam blanditiis voluptatibus, in hic dolorum quam praesentium magni tempore magnam aspernatur.";
 
     setText(para);
+    setWordCount(50);
+    setCountVowCons([142, 177]);
+  };
+
+  const handleClearTextClick = () => {
+    setText("");
+    setWordCount(0);
+    setCountVowCons([0, 0]);
   };
 
   const handleCountVowCons = (text) => {
@@ -94,6 +102,9 @@ function TextForm() {
         </button>
         <button className="btn btn-primary mx-1" onClick={handleFirstCapsClick}>
           First Caps
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleClearTextClick}>
+          Clear Text
         </button>
       </div>
       <div className="container my-1">
